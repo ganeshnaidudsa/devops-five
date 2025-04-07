@@ -35,7 +35,7 @@ jobs:
                 ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@139.59.83.188 << 'EOF'
                 docker rm -f backend_container
                 docker pull ${{secrets.DOCKER_USERNAME}}/mono-backend:latest 
-                docker run -p 8080:8080 ${{secrets.DOCKER_USERNAME}}/mono-backend:latest
+                docker run -d -p 8080:8080 -e DATABASE_URL=${{secrets.DATABASE_URL}} ${{secrets.DOCKER_USERNAME}}/mono-backend:latest
                 EOF
                 
             
