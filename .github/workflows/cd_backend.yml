@@ -30,7 +30,7 @@ jobs:
                 echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/ssh_key
                 chmod 700 ~/ssh_key
 
-            - name: SSH into machine
+            - name: SSH into machine and redeploy
               run: |
                 ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@139.59.83.188 << 'EOF'
                 docker rm -f backend_container
