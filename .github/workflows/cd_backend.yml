@@ -25,9 +25,9 @@ jobs:
             - name: Push Docker Image
               run: docker push ${{secrets.DOCKER_USERNAME}}/mono-backend:latest
 
-            - name: Save SSH key
+            - name: Save SSH Private Key
               run:  |
-                echo "${{secrets.SSH_KEY}}" > ~/ssh_key
+                echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/ssh_key
                 chmod 700 ~/ssh_key
                 
                 
